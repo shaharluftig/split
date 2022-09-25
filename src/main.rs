@@ -1,3 +1,8 @@
+mod models;
+
+use clap::Parser;
+
 fn main() {
-    println!("Hello, world!");
+    let args = models::args::Args::parse();
+    println!("{:?}", args.path)
 }
