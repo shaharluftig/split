@@ -1,3 +1,4 @@
+use std::ffi::OsStr;
 use std::fs::File;
 use std::io::{BufRead, BufReader, BufWriter, Write};
 use std::path::PathBuf;
@@ -8,8 +9,8 @@ pub fn split_file(path: &PathBuf, lines: usize, files: usize) {
     let mut file_buffer = create_file_buffer(format_path(&path, file_index));
 
     for (line_index, line) in reader.lines().enumerate() {
-        write!(file_buffer, "{}", line.unwrap()).expect("unable to write line");
-        if line_index % &lines == 0 {
+        writeln!(file_buffer, "{}", line.unwrap()).expect("unable to write line");
+        if line_index % &lines == 0 && line_index != 0 {
             file_index = &file_index + 1;
             file_buffer = create_file_buffer(format_path(&path, file_index));
         }
@@ -17,7 +18,11 @@ pub fn split_file(path: &PathBuf, lines: usize, files: usize) {
 }
 
 fn format_path(path: &PathBuf, file_number: usize) -> PathBuf {
-    let path = format!("{file_path:?}_{index}", file_path = &path, index = file_number);
+    let path = format!("{file_name}_{index}.{file_stem}",
+                       file_name = &path.file_stem().and_then(OsStr::to_str).unwrap(),
+                       index = file_number.to_string(),
+                       file_stem = &path.extension().and_then(OsStr::to_str).unwrap());
+    println!("{}", path);
     PathBuf::from(path)
 }
 
