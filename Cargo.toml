@@ -1,10 +1,11 @@
 [package]
 name = "split"
-authors = ["Luftig"]
+authors = ["Shahar Luftig <shaharluftig@gmail.com>"]
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+description = "A simple and very fast implementation of Unix Split tool using Rust"
+repository = "https://github.com/shaharluftig/split"
+license = "MIT"
 
 [dependencies]
 clap = { version = "3.2.22", features = ["derive"] }
