@@ -5,7 +5,7 @@ use std::path::PathBuf;
 
 use crate::utils::file_utils;
 
-/// Splits a file to n lines or n files
+/// Splits a file to multiply files
 /// # Arguments
 /// * `path` - A PathBuf slice to the file
 /// * `lines`- Number of lines per output file
@@ -32,6 +32,10 @@ pub fn split_file(path: &PathBuf, lines: usize, ignore_empty_lines: bool) {
     }
 }
 
+/// Formats a path + file number to a new path
+/// # Arguments
+/// * `path` - A PathBuf slice to the file
+/// * `file_number`- The nubmer of the output file
 fn format_path(path: &PathBuf, file_number: &usize) -> PathBuf {
     let path = format!("{file_name}_{index}.{file_stem}",
                        file_name = &path.file_stem().and_then(OsStr::to_str).unwrap(),
