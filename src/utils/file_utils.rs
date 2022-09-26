@@ -7,7 +7,7 @@ use std::path::PathBuf;
 /// # Arguments
 /// * `path` - A path to the file
 pub fn create_write_file_buffer(path: &PathBuf) -> BufWriter<File> {
-    let file = match File::create(&path) {
+    let file: File = match File::create(&path) {
         Err(err) => panic!("Couldn't write {file_name}:{reason}",
                            file_name = &path.file_name().and_then(OsStr::to_str).unwrap(), reason = err),
         Ok(file) => file,
@@ -20,7 +20,7 @@ pub fn create_write_file_buffer(path: &PathBuf) -> BufWriter<File> {
 /// # Arguments
 /// * `path` - A path to the file
 pub fn create_read_file_buffer(path: &PathBuf) -> BufReader<File> {
-    let file = match File::open(&path) {
+    let file: File = match File::open(&path) {
         Err(err) => panic!("Couldn't open {file_name}:{reason}",
                            file_name = &path.file_name().and_then(OsStr::to_str).unwrap(), reason = err),
         Ok(file) => file,

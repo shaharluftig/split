@@ -37,7 +37,7 @@ pub fn split_file(path: &PathBuf, lines: usize, ignore_empty_lines: bool) {
 /// * `path` - A PathBuf slice to the file
 /// * `file_number`- The nubmer of the output file
 fn format_path(path: &PathBuf, file_number: &usize) -> PathBuf {
-    let path = format!("{file_name}_{index}.{file_stem}",
+    let path:String = format!("{file_name}_{index}.{file_stem}",
                        file_name = &path.file_stem().and_then(OsStr::to_str).unwrap(),
                        index = file_number.to_string(),
                        file_stem = &path.extension().and_then(OsStr::to_str).unwrap());
