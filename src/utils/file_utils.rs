@@ -3,7 +3,9 @@ use std::fs::File;
 use std::io::{BufRead, BufReader, BufWriter, Write};
 use std::path::PathBuf;
 
-/// Create a new file and returns a buffer to the file
+/// Create a new file and returns a read buffer to the file
+/// # Arguments
+/// * `path` - A path to the file
 pub fn create_write_file_buffer(path: &PathBuf) -> BufWriter<File> {
     let mut file = match File::create(&path) {
         Err(err) => panic!("Couldn't write {file_name}:{reason}",
@@ -14,7 +16,9 @@ pub fn create_write_file_buffer(path: &PathBuf) -> BufWriter<File> {
     BufWriter::new(file)
 }
 
-/// Reads a file and returns a buffer to the file
+/// Create a new file and returns a read buffer to the file
+/// # Arguments
+/// * `path` - A path to the file
 pub fn create_read_file_buffer(path: &PathBuf) -> BufReader<File> {
     let mut file = match File::open(&path) {
         Err(err) => panic!("Couldn't open {file_name}:{reason}",

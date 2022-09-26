@@ -5,6 +5,11 @@ use std::path::PathBuf;
 
 use crate::utils::file_utils;
 
+/// Splits a file to n lines or n files
+/// # Arguments
+/// * `path` - A PathBuf slice to the file
+/// * `lines`- Number of lines per output file
+/// * `ignore_empty_lines`- A bool that indicates if empty lines should be ignored
 pub fn split_file(path: &PathBuf, lines: usize, files: usize, ignore_empty_lines: bool) {
     let file_read_buffer: BufReader<File> = file_utils::create_read_file_buffer(&path);
     let mut file_index: usize = 1;
@@ -22,7 +27,6 @@ pub fn split_file(path: &PathBuf, lines: usize, files: usize, ignore_empty_lines
             file_index = &file_index + 1;
             let formatted_path: PathBuf = format_path(&path, &file_index);
             file_writer_buffer = file_utils::create_write_file_buffer(&formatted_path);
-
         }
     }
 }
