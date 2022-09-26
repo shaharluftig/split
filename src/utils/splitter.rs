@@ -16,17 +16,19 @@ pub fn split_file(path: &PathBuf, lines: usize, _files: usize, ignore_empty_line
     let mut file_writer_buffer: BufWriter<File> = file_utils::create_write_file_buffer(
         &format_path(&path, &file_index));
 
+    let mut line_number: usize = 0;
     for (line_index, line) in file_read_buffer.lines().enumerate() {
         let line_value: String = line.expect(format!("Cant read line:{}", line_index).as_str());
         if ignore_empty_lines && &line_value == "" {
             continue;
         }
-        if line_index % &lines == 0 && line_index != 0 {
+        if line_number % &lines == 0 && line_number != 0 {
             file_index = &file_index + 1;
             let formatted_path: PathBuf = format_path(&path, &file_index);
             file_writer_buffer = file_utils::create_write_file_buffer(&formatted_path);
         }
-        writeln!(file_writer_buffer, "{}", &line_value).expect(format!("Unable to write line:{}", line_index).as_str());
+        writeln!(file_writer_buffer, "{}", &line_value).expect(format!("Unable to write line:{}", line_number).as_str());
+        line_number = &line_number + 1;
     }
 }
 
