@@ -2,7 +2,6 @@ use std::ffi::OsStr;
 use std::fs::File;
 use std::io::{BufRead, BufReader, BufWriter, Write};
 use std::path::PathBuf;
-use std::time::Instant;
 
 use crate::utils::file_utils;
 
@@ -12,7 +11,6 @@ use crate::utils::file_utils;
 /// * `lines`- Number of lines per output file
 /// * `ignore_empty_lines`- A bool that indicates if empty lines should be ignored
 pub fn split_file(path: &PathBuf, lines: usize, ignore_empty_lines: bool) {
-    let now = Instant::now();
     let file_read_buffer: BufReader<File> = file_utils::create_read_file_buffer(&path);
     let mut file_index: usize = 1;
     let mut file_writer_buffer: BufWriter<File> = file_utils::create_write_file_buffer(
@@ -32,7 +30,6 @@ pub fn split_file(path: &PathBuf, lines: usize, ignore_empty_lines: bool) {
         writeln!(file_writer_buffer, "{}", &line_value).expect(format!("Unable to write line:{}", line_number).as_str());
         line_number = &line_number + 1;
     }
-    println!("Finished, time took: {} milliseconds", now.elapsed().as_millis());
 }
 
 /// Formats a path + file number to a new path
