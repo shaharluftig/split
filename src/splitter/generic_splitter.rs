@@ -32,7 +32,7 @@ pub fn split_file(path: &PathBuf, lines: usize, ignore_empty_lines: bool) {
         writeln!(file_writer_buffer, "{}", &line_value).expect(format!("Unable to write line:{}", line_number).as_str());
         line_number = &line_number + 1;
     }
-    println!("Finished, time taken:{} milliseconds", now.elapsed().as_millis());
+    println!("Finished, time took: {} milliseconds", now.elapsed().as_millis());
 }
 
 /// Formats a path + file number to a new path
