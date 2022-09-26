@@ -4,8 +4,9 @@ use crate::models::args::Args;
 
 mod models;
 mod utils;
+mod splitter;
 
 fn main() {
     let args: Args = models::args::Args::parse();
-    utils::splitter::split_file(&args.path, args.lines, args.ignore_empty_lines);
+    splitter::generic_splitter::split_file(&args.path, args.lines, args.ignore_empty_lines);
 }
