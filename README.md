@@ -3,9 +3,9 @@
 A simple and very fast implementation of Unix CLI Split tool using Rust,<br />
 unlike Unix split, this tool can run on every machine (Windows, Macos, Linux).
 
-### Installation
+### Building
 
-1. cargo run
+1. cargo build --release
 
 ### Usage:
 
