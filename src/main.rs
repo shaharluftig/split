@@ -5,5 +5,5 @@ mod utils;
 
 fn main() {
     let args = models::args::Args::parse();
-    utils::splitter::split_file(&args.path, args.lines, args.files, args.ignore_empty_lines);
+    utils::splitter::split_file(&args.path, args.lines, args.ignore_empty_lines);
 }

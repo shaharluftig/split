@@ -7,9 +7,6 @@ pub struct Args {
     /// Number of lines per output file
     #[clap(short, long, value_parser, default_value_t = 1000)]
     pub lines: usize,
-    /// Number of output files
-    #[clap(short, long, value_parser, default_value_t = 1)]
-    pub files: usize,
     /// The path to the file to read
     #[clap(parse(from_os_str))]
     pub path: std::path::PathBuf,

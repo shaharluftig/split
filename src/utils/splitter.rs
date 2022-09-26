@@ -10,7 +10,7 @@ use crate::utils::file_utils;
 /// * `path` - A PathBuf slice to the file
 /// * `lines`- Number of lines per output file
 /// * `ignore_empty_lines`- A bool that indicates if empty lines should be ignored
-pub fn split_file(path: &PathBuf, lines: usize, _files: usize, ignore_empty_lines: bool) {
+pub fn split_file(path: &PathBuf, lines: usize, ignore_empty_lines: bool) {
     let file_read_buffer: BufReader<File> = file_utils::create_read_file_buffer(&path);
     let mut file_index: usize = 1;
     let mut file_writer_buffer: BufWriter<File> = file_utils::create_write_file_buffer(
