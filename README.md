@@ -32,7 +32,7 @@ File:560mb_1.csv written successfully
 File:560mb_2.csv written successfully
 File:560mb_3.csv written successfully
 File:560mb_4.csv written successfully
-Finished, time took: 808 milliseconds
+Finished, time took: 767 milliseconds
 ```
 
 ### Development
