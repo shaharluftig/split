@@ -24,6 +24,13 @@ OPTIONS:
 
 ```
 
+### Development
+
+#### Todos in the near future
+
+- Add tests
+- Split by number of output files
+
 License
 ----
 
