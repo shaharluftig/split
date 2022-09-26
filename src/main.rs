@@ -3,8 +3,8 @@ use clap::Parser;
 use crate::models::args::Args;
 
 mod models;
-mod utils;
 mod splitter;
+mod utils;
 
 fn main() {
     let args: Args = models::args::Args::parse();
