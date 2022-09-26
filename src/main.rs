@@ -1,11 +1,16 @@
+use std::time::Instant;
+
 use clap::Parser;
 
 use crate::models::args::Args;
 
 mod models;
+mod splitter;
 mod utils;
 
 fn main() {
+    let now = Instant::now();
     let args: Args = models::args::Args::parse();
-    utils::splitter::split_file(&args.path, args.lines, args.ignore_empty_lines);
+    splitter::generic_splitter::split_file(&args.path, args.lines, args.ignore_empty_lines);
+    println!("Finished, time took: {} milliseconds", now.elapsed().as_millis());
 }
