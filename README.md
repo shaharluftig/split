@@ -1,6 +1,6 @@
 # Split
 
-A simple and very fast implementation of Unix Split tool using Rust,<br />
+A simple and very fast implementation of Unix CLI Split tool using Rust,<br />
 unlike Unix split, this tool can run on every machine (Windows, Macos, Linux).
 
 ### Installation

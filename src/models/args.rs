@@ -1,6 +1,6 @@
 use clap::Parser;
 
-/// Split any file to multiply files
+/// A simple and very fast implementation of Unix Split tool using Rust
 #[derive(Parser)]
 #[clap(author, version, about, long_about = None)]
 pub struct Args {
