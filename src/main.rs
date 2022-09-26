@@ -1,9 +1,9 @@
 use clap::Parser;
 
 mod models;
-mod file_utils;
+mod utils;
 
 fn main() {
     let args = models::args::Args::parse();
-    file_utils::splitter::split_file(&args.path, args.lines, args.files);
+    utils::splitter::split_file(&args.path, args.lines, args.ignore_empty_lines);
 }
