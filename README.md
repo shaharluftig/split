@@ -24,6 +24,17 @@ OPTIONS:
 
 ```
 
+### Example:
+
+```
+> ./split.exe 560mb.csv -l 20000
+File:560mb_1.csv written successfully
+File:560mb_2.csv written successfully
+File:560mb_3.csv written successfully
+File:560mb_4.csv written successfully
+Finished, time took: 767 milliseconds
+```
+
 ### Development
 
 #### Todos in the near future
