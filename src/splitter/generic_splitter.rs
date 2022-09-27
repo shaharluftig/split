@@ -24,8 +24,8 @@ pub fn split_file(path: &PathBuf, lines: usize, ignore_empty_lines: bool) {
         }
         if line_number % &lines == 0 && line_number != 0 {
             file_index = &file_index + 1;
-            let formatted_path: PathBuf = format_path(&path, &file_index);
-            file_writer_buffer = file_utils::create_write_file_buffer(&formatted_path);
+            file_writer_buffer = file_utils::create_write_file_buffer(
+                &format_path(&path, &file_index));
         }
         writeln!(file_writer_buffer, "{}", &line_value).expect(format!("Unable to write line:{}", line_number).as_str());
         line_number = &line_number + 1;
