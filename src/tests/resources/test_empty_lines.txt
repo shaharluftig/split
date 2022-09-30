@@ -7,8 +7,8 @@ my
 
 
 name
-if
+is
 
 
 
-trump
+joe
