@@ -9,6 +9,7 @@ mod tests {
     use crate::splitter::generic_splitter::split_file;
     use crate::utils::file_utils;
 
+    /// A generic split line test
     /// # Arguments
     /// * `path` - A PathBuf slice to the file
     /// * `number_of_lines`- Number of lines per output file
