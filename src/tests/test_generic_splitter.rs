@@ -1,4 +1,5 @@
 #[cfg(test)]
+/// Generic Splitter tests
 mod tests {
     use std::fs;
     use std::fs::File;
@@ -8,6 +9,10 @@ mod tests {
     use crate::splitter::generic_splitter::split_file;
     use crate::utils::file_utils;
 
+    /// # Arguments
+    /// * `path` - A PathBuf slice to the file
+    /// * `number_of_lines`- Number of lines per output file
+    /// * `ignore_empty_lines`- A bool that indicates if empty lines should be ignored
     fn test_sanity(path: PathBuf, number_of_lines: usize, ignore_empty_lines: bool) {
         let written_files: Vec<PathBuf> = split_file(&path, number_of_lines, ignore_empty_lines);
         for path in written_files.iter() {
@@ -22,12 +27,14 @@ mod tests {
     }
 
     #[test]
-    fn test_ignore_empty_line() {
+    /// Tests --ignore-empty-lines flag
+    fn test_ignore_empty_lines() {
         let path: PathBuf = PathBuf::from("./src/tests/resources/test_empty_lines.txt");
         test_sanity(path, 3, true)
     }
 
     #[test]
+    /// Tests -l flag
     fn test_split_lines() {
         let path: PathBuf = PathBuf::from("./src/tests/resources/test.txt");
         test_sanity(path, 3, false)
