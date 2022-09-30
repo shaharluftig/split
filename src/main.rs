@@ -7,6 +7,7 @@ use crate::models::args::Args;
 mod models;
 mod splitter;
 mod utils;
+mod tests;
 
 fn main() {
     let now = Instant::now();

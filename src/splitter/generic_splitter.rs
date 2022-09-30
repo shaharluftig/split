@@ -5,16 +5,18 @@ use std::path::PathBuf;
 
 use crate::utils::file_utils;
 
-/// Splits a file to multiply files
+/// Splits a file to multiply files, and return's a vec of written path's
 /// # Arguments
 /// * `path` - A PathBuf slice to the file
 /// * `lines`- Number of lines per output file
 /// * `ignore_empty_lines`- A bool that indicates if empty lines should be ignored
-pub fn split_file(path: &PathBuf, lines: usize, ignore_empty_lines: bool) {
+pub fn split_file(path: &PathBuf, lines: usize, ignore_empty_lines: bool) -> Vec<PathBuf> {
     let file_read_buffer: BufReader<File> = file_utils::create_read_file_buffer(&path);
     let mut file_index: usize = 1;
+    let formatted_path = format_path(&path, &file_index);
+    let mut written_files = vec![formatted_path.clone()];
     let mut file_writer_buffer: BufWriter<File> = file_utils::create_write_file_buffer(
-        &format_path(&path, &file_index));
+        &formatted_path);
 
     let mut line_number: usize = 0;
     for (line_index, line) in file_read_buffer.lines().enumerate() {
@@ -24,12 +26,14 @@ pub fn split_file(path: &PathBuf, lines: usize, ignore_empty_lines: bool) {
         }
         if line_number % &lines == 0 && line_number != 0 {
             file_index = &file_index + 1;
-            file_writer_buffer = file_utils::create_write_file_buffer(
-                &format_path(&path, &file_index));
+            let path = format_path(&path, &file_index);
+            file_writer_buffer = file_utils::create_write_file_buffer(&path);
+            written_files.push(path);
         }
         writeln!(file_writer_buffer, "{}", &line_value).expect(format!("Unable to write line:{}", line_number).as_str());
         line_number = &line_number + 1;
     }
+    written_files
 }
 
 /// Formats a path + file number to a new path
