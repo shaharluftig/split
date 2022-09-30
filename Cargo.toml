@@ -1,6 +1,6 @@
 [package]
 name = "split"
-authors = ["Shahar Luftig <shaharluftig@gmail.com>"]
+authors = ["Luftig"]
 version = "0.1.0"
 edition = "2021"
 description = "A simple and very fast implementation of Unix Split tool using Rust"
