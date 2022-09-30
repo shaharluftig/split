@@ -39,7 +39,7 @@ Finished, time took: 767 milliseconds
 
 #### Todos in the near future
 
-- Add tests
+- ~~Add tests~~
 - Split by number of output files
 
 License
