@@ -1,4 +1,4 @@
-# Split
+# Split <img src="https://www.pngrepo.com/png/180449/512/scissors-cut.png" width="25">
 
 A simple and very fast implementation of Unix CLI Split tool using Rust,<br />
 unlike Unix split, this tool can run on every machine (Windows, Macos, Linux).
@@ -46,3 +46,5 @@ License
 ----
 
 MIT
+
+Icons by svgrepo.com
