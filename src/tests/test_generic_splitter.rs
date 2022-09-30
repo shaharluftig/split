@@ -13,7 +13,7 @@ mod tests {
         for path in written_files.iter() {
             let file_read_buffer: BufReader<File> = file_utils::create_read_file_buffer(&path);
             let mut line_counter = 0;
-            for line in file_read_buffer.lines() {
+            for _line in file_read_buffer.lines() {
                 line_counter += 1;
             }
             assert_eq!(number_of_lines, line_counter);
