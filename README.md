@@ -3,9 +3,9 @@
 A simple and very fast implementation of Unix CLI Split tool using Rust,<br />
 unlike Unix split, this tool can run on every machine (Windows, Macos, Linux).
 
-### Building
+### Installation
 
-1. cargo build --release
+1. Download and install ./bin/split-0.1.0-x86_64.msi
 
 ### Usage:
 
@@ -34,6 +34,9 @@ File:560mb_3.csv written successfully
 File:560mb_4.csv written successfully
 Finished, time took: 767 milliseconds
 ```
+### Building
+
+1. cargo build --release
 
 ### Development
 
