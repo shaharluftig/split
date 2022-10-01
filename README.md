@@ -27,7 +27,7 @@ OPTIONS:
 ### Example:
 
 ```
-> ./split.exe 560mb.csv -l 20000
+> split 560mb.csv -l 20000 --ignore-empty-lines 
 File:560mb_1.csv written successfully
 File:560mb_2.csv written successfully
 File:560mb_3.csv written successfully
